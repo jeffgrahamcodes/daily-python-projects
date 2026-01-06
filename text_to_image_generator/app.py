@@ -54,9 +54,10 @@ st.text_area("Enter your image description:", "")
 
 
 # Example prompts
-st.text("Example prompts:")
-st.text("- Cute robot")
-st.text("- Futuristic city")
+st.write("**Example prompts:**")
+st.text("• A cute robot painting a picture")
+st.text("• A futuristic city with flying cars")
+st.text("• A cozy coffee shop on a rainy day")
 
 
 
