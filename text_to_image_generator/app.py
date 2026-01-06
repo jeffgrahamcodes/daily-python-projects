@@ -35,10 +35,10 @@ import streamlit as st
 
 
 # Load environment variables
-
-
-# Set page config
-
+st.set_page_config(
+    page_title="Text to Image Generator",
+    page_icon="🎨"
+)
 
 # Header
 st.header("Text to Image Generator")
@@ -49,9 +49,7 @@ st.divider()
 
 
 # Text input for image description
-st.text_area("Enter your image description:", "")
-
-
+prompt = st.text_area("Enter your image description:", "")
 
 # Example prompts
 st.write("**Example prompts:**")
