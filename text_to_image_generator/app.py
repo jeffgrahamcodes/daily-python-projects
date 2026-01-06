@@ -28,7 +28,7 @@ BytesIO creates in-memory file from binary data.
 
 # Import necessary libraries
 # (streamlit, requests, PIL, BytesIO, os, dotenv)
-
+import streamlit as st
 
 
 
@@ -41,24 +41,27 @@ BytesIO creates in-memory file from binary data.
 
 
 # Header
-
+st.header("Text to Image Generator")
+st.divider()
 
 
 # Get API key from environment
 
 
 # Text input for image description
-
+st.text_area("Enter your image description:", "")
 
 
 
 # Example prompts
-
+st.text("Example prompts:")
+st.text("- Cute robot")
+st.text("- Futuristic city")
 
 
 
 # Generate button
-
+st.button("Generate Image", type="primary")
     
         
             # API endpoint
