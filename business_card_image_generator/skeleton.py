@@ -28,7 +28,7 @@ ImageFont sets font style and size for text.
 
 # Import necessary libraries
 # (PIL for image creation and text rendering)
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFont
 
 # Print header
 print("Business Card Generator")
@@ -62,27 +62,31 @@ draw.rectangle((0, 0 , 800, 400 // 3),
 
 # Set up fonts
 # (use default font with different sizes)
-
-
+font_14 = ImageFont.load_default(14)
+font_16 = ImageFont.load_default(16)
 
 
 # Add name text (white text on blue background)
+draw.text((33,33), name.upper(), fill="white",font = font_16)
 
 
 # Add title text (white text on blue background)
+draw.text((33,66), title, fill="white",font = font_14)
 
 
 # Add email text (dark text on white background)
+draw.text((33,166), email, fill="black",font = font_14)
 
 
 # Add phone text (dark text on white background)
-
+draw.text((33,199), phone, fill="black",font = font_14)
 
 # Create filename from name
-
+filename = f"{name.replace(" ", "_").lower()}.png"
 
 # Save the business card
-img.save("business_card.png")
+img.save(filename)
 
 
 # Print success message
+print("SUCCESS")
