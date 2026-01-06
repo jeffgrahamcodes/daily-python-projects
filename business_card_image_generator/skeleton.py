@@ -48,45 +48,48 @@ print("\nGenerating business card...")
 # Create a new image with white background
 # (800x400 pixels, RGB mode, white color)
 img = Image.new("RGB", (800, 400), color="white")
-img.save("business_card.png")
 
 # Create drawing object
 draw = ImageDraw.Draw(img)
 
 # Draw colored rectangle as background accent
 # (top section with blue color)
-draw.rectangle((0, 0 , 800, 400 // 3),
-               fill = "blue",
-               outline = "blue",
-               width = 1)
+draw.rectangle((0, 0 , 800, 150), fill = (41, 128, 185))
 
 # Set up fonts
 # (use default font with different sizes)
-font_14 = ImageFont.load_default(14)
-font_16 = ImageFont.load_default(16)
+try:
+    font_large = ImageFont.truetype("arial.ttf", 48)
+    font_medium = ImageFont.truetype("arial.ttf", 40)
+    font_small = ImageFont.truetype("arial.ttf", 36)
+except:
+    font_large = ImageFont.load_default(48)
+    font_medium = ImageFont.load_default(40)
+    font_small = ImageFont.load_default(36)
 
 
 # Add name text (white text on blue background)
-draw.text((33,33), name.upper(), fill="white",font = font_16)
+draw.text((50,20), name.upper(), fill="white",font = font_large)
 
 
 # Add title text (white text on blue background)
-draw.text((33,66), title, fill="white",font = font_14)
+draw.text((50,80), title, fill="white",font = font_medium)
 
 
 # Add email text (dark text on white background)
-draw.text((33,166), email, fill="black",font = font_14)
+draw.text((50,200), email, fill="black",font = font_small)
 
 
 # Add phone text (dark text on white background)
-draw.text((33,199), phone, fill="black",font = font_14)
+draw.text((50,275), phone, fill="black",font = font_small)
 
 # Create filename from name
-filename = f"{name.replace(" ", "_").lower()}.png"
+filename = f"{name.replace(" ", "_").lower()}_business_card.png"
 
 # Save the business card
 img.save(filename)
 
 
 # Print success message
-print("SUCCESS")
+print(f"Business card saved as: {filename}\n")
+print("Card generated successfully!")
