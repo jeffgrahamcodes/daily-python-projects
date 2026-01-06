@@ -28,29 +28,37 @@ ImageFont sets font style and size for text.
 
 # Import necessary libraries
 # (PIL for image creation and text rendering)
-
+from PIL import Image, ImageDraw
 
 # Print header
-
+print("Business Card Generator")
+print("=======================\n")
 
 # Get user information
-
-
+print("Enter your information:")
+name = input("Name: ")
+title = input("Title: ")
+email = input("Email: ")
+phone = input("phone: ")
 
 
 # Print processing message
-
+print("\nGenerating business card...")
 
 # Create a new image with white background
 # (800x400 pixels, RGB mode, white color)
-
+img = Image.new("RGB", (800, 400), color="white")
+img.save("business_card.png")
 
 # Create drawing object
-
+draw = ImageDraw.Draw(img)
 
 # Draw colored rectangle as background accent
 # (top section with blue color)
-
+draw.rectangle((0, 0 , 800, 400 // 3),
+               fill = "blue",
+               outline = "blue",
+               width = 1)
 
 # Set up fonts
 # (use default font with different sizes)
@@ -74,6 +82,7 @@ ImageFont sets font style and size for text.
 
 
 # Save the business card
+img.save("business_card.png")
 
 
-# Print success messagegit
+# Print success message
